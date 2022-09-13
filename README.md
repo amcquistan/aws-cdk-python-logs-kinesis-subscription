@@ -55,5 +55,6 @@ command.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
+ * `python kinesis_consumer.py loggingapp-stream `   consumes from the kinesis stream to prove that the custom resource provider is able to publish test data to it
 
 Enjoy!
