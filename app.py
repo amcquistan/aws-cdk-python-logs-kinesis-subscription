@@ -26,7 +26,8 @@ logging_datagen_stack = LoggingDatagenStack(app, "loggingdatagen-stack",
 KinesisLogStreamProcessorStack(app, "stream-processor",
   env=env,
   stack_name="stream-processor",
-  log_group=logging_datagen_stack.log_group
+  log_group=logging_datagen_stack.log_group,
+  stream=infra_stack.kinesis_stream
 )
 
 app.synth()

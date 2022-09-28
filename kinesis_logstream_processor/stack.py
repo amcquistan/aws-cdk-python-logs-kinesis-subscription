@@ -17,10 +17,8 @@ from constructs import Construct
 
 
 class KinesisLogStreamProcessorStack(Stack):
-  def __init__(self, scope: Construct, construct_id: str, log_group: logs.LogGroup, **kwargs):
+  def __init__(self, scope: Construct, construct_id: str, log_group: logs.LogGroup, stream: kinesis.Stream, **kwargs):
     super().__init__(scope, construct_id, **kwargs)
-
-    stream = kinesis.Stream(self, "logstream", stream_name="loggingapp-stream", shard_count=2)
 
     status_fn = lambda_.Function(self, "status-fn",
       code=lambda_.Code.from_asset(str(Path(__file__).parent.joinpath("functions"))),
